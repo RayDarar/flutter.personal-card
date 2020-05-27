@@ -17,6 +17,23 @@ Container genContainer(int index) {
 }
 
 class App extends StatelessWidget {
+  Card genCard(String text, IconData icon) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+      child: ListTile(
+        title: Text(
+          text,
+          style: TextStyle(
+            fontSize: 20,
+            fontFamily: "Source-Sans Pro",
+            color: Colors.teal[900],
+          ),
+        ),
+        leading: Icon(icon, color: Colors.teal),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,6 +41,8 @@ class App extends StatelessWidget {
           backgroundColor: Colors.teal,
           body: SafeArea(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
                 radius: 50,
@@ -33,11 +52,26 @@ class App extends StatelessWidget {
                 "Ryspekov Ansar",
                 style: TextStyle(
                   fontSize: 40,
-                  fontWeight: FontWeight.bold,
                   fontFamily: "Pacifico",
                   color: Colors.white,
                 ),
-              )
+              ),
+              Text(
+                "Fullstack JS developer".toUpperCase(),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Source-Sans Pro",
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+                child: Divider(
+                  color: Colors.teal[100],
+                ),
+              ),
+              genCard("87086144672", Icons.phone),
+              genCard("dfqgth400@gmail.com", Icons.email),
             ],
           ))),
     );
